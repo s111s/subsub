@@ -1,0 +1,29 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: InspexSimulator
+    network: bsc
+    source:
+      address: "0xB9ADBF869C348720E35A512a6dacD9DcC3c744da"
+      abi: InspexSimulator
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - HelloWorld
+        - OwnershipTransferred
+        - SetYZ
+      abis:
+        - name: InspexSimulator
+          file: ./abis/InspexSimulator.json
+      eventHandlers:
+        - event: HelloWorld(indexed uint256,indexed address,bytes,string,address[])
+          handler: handleHelloWorld
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: SetYZ(indexed address,indexed bool)
+          handler: handleSetYZ
+      file: ./src/mapping.ts

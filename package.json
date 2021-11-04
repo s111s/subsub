@@ -1,0 +1,16 @@
+{
+  "name": "subsub",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ s111s/subsub",
+    "create-local": "graph create --node http://localhost:8020/ s111s/subsub",
+    "remove-local": "graph remove --node http://localhost:8020/ s111s/subsub",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 s111s/subsub"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.23.1",
+    "@graphprotocol/graph-ts": "0.23.1"
+  }
+}
